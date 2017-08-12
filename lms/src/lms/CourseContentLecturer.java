@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileSystemView;
 
 /**
@@ -107,9 +108,9 @@ public class CourseContentLecturer extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jList1.setPreferredSize(new java.awt.Dimension(49, 120));
         jScrollPane1.setViewportView(jList1);
 
+        jButton4.setBackground(new java.awt.Color(44, 201, 144));
         jButton4.setText("Open");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,6 +118,7 @@ public class CourseContentLecturer extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(44, 201, 144));
         jButton3.setText("Delete File");
         jButton3.setPreferredSize(new java.awt.Dimension(59, 23));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -125,6 +127,7 @@ public class CourseContentLecturer extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(44, 201, 144));
         jButton2.setText("Add File");
         jButton2.setPreferredSize(new java.awt.Dimension(59, 23));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -250,6 +253,7 @@ public class CourseContentLecturer extends javax.swing.JFrame {
         System.out.println("file: "+file);
         String basePath= deptN.getFilePath();
         String location = basePath+"\\src\\Libs\\"+deptN.getDepartment()+"\\"+deptN.getCourse()+"\\"+file;
+        if(file != null){
         File f = new File(location);
         if (f.exists())
         {
@@ -268,6 +272,9 @@ public class CourseContentLecturer extends javax.swing.JFrame {
             }
             
         }
+        }else{
+            JOptionPane.showMessageDialog(null, "Please Select a file to open!", "Error", 0);
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -276,6 +283,7 @@ public class CourseContentLecturer extends javax.swing.JFrame {
                 String name = (String)jList1.getSelectedValue();
                 String basePath= deptN.getFilePath();
                 String location = basePath+"\\src\\Libs\\"+deptN.getDepartment()+"\\"+deptN.getCourse()+"\\"+name;
+                if(name != null){
     		File file = new File(location);
 
     		if(file.delete()){
@@ -283,7 +291,9 @@ public class CourseContentLecturer extends javax.swing.JFrame {
     		}else{
     			System.out.println("Delete operation is failed.");
     		}
-
+                }else{
+                    JOptionPane.showMessageDialog(null, "Please Select a file to delete!", "Error", 0);
+                }    
     	}catch(Exception e){
 
     		e.printStackTrace();

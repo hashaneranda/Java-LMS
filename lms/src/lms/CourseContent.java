@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -106,6 +107,7 @@ public class CourseContent extends javax.swing.JFrame {
 
         jButton1.setText("Log Out");
 
+        jButton2.setBackground(new java.awt.Color(44, 201, 144));
         jButton2.setText("Open");
         jButton2.setAlignmentX(0.5F);
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -168,6 +170,7 @@ public class CourseContent extends javax.swing.JFrame {
         System.out.println("file: "+file);
         String basePath = deptN1.getFilePath();
         String location = basePath+"\\src\\Libs\\"+deptN1.getDepartment()+"\\"+deptN1.getCourse()+"\\"+file;
+        if(file != null){
         File f = new File(location);
         if (f.exists())
         {
@@ -185,6 +188,9 @@ public class CourseContent extends javax.swing.JFrame {
                 System.out.println("File does not exists!");
             }
             
+        }
+        }else{
+            JOptionPane.showMessageDialog(null, "Please Select a file to Open!", "Error", 0);
         }
         
     }//GEN-LAST:event_jButton2ActionPerformed

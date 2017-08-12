@@ -147,6 +147,7 @@ public class CourseList extends javax.swing.JFrame {
 
         jScrollPane2.setViewportView(jScrollPane1);
 
+        jButton3.setBackground(new java.awt.Color(44, 201, 144));
         jButton3.setText("View Courses");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
