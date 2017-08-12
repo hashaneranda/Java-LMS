@@ -118,7 +118,7 @@ public class CourseContentLecturer extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(44, 201, 144));
+        jButton3.setBackground(new java.awt.Color(227, 0, 14));
         jButton3.setText("Delete File");
         jButton3.setPreferredSize(new java.awt.Dimension(59, 23));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +127,7 @@ public class CourseContentLecturer extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(44, 201, 144));
+        jButton2.setBackground(new java.awt.Color(29, 171, 184));
         jButton2.setText("Add File");
         jButton2.setPreferredSize(new java.awt.Dimension(59, 23));
         jButton2.addActionListener(new java.awt.event.ActionListener() {

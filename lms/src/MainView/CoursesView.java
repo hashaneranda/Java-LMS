@@ -22,6 +22,7 @@ public class CoursesView extends javax.swing.JFrame {
      */
     public CoursesView() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -44,7 +45,7 @@ public class CoursesView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 102, 0));
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 0));
+        jPanel1.setBackground(new java.awt.Color(29, 171, 184));
 
         jDesktopPaneCourse.setMaximumSize(new java.awt.Dimension(834, 532));
         jDesktopPaneCourse.setName(""); // NOI18N
@@ -66,7 +67,7 @@ public class CoursesView extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Course Details");
 
-        ADDCourse.setBackground(new java.awt.Color(255, 255, 153));
+        ADDCourse.setBackground(new java.awt.Color(29, 171, 184));
         ADDCourse.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         ADDCourse.setText("Add Courses");
         ADDCourse.addActionListener(new java.awt.event.ActionListener() {
@@ -75,7 +76,7 @@ public class CoursesView extends javax.swing.JFrame {
             }
         });
 
-        UPDATECourse.setBackground(new java.awt.Color(255, 255, 153));
+        UPDATECourse.setBackground(new java.awt.Color(44, 201, 144));
         UPDATECourse.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         UPDATECourse.setText("Update Courses");
         UPDATECourse.addActionListener(new java.awt.event.ActionListener() {
@@ -84,7 +85,7 @@ public class CoursesView extends javax.swing.JFrame {
             }
         });
 
-        DELETECourse.setBackground(new java.awt.Color(255, 255, 153));
+        DELETECourse.setBackground(new java.awt.Color(227, 0, 14));
         DELETECourse.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         DELETECourse.setText("Delete Courses");
         DELETECourse.addActionListener(new java.awt.event.ActionListener() {
@@ -93,6 +94,7 @@ public class CoursesView extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setBackground(new java.awt.Color(29, 171, 184));
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton4.setText("Back");
         jButton4.addActionListener(new java.awt.event.ActionListener() {

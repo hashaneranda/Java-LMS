@@ -16,6 +16,7 @@ public class select extends javax.swing.JFrame {
      */
     public select() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -39,7 +40,7 @@ public class select extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Learning Management System");
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 153));
+        jButton1.setBackground(new java.awt.Color(29, 171, 184));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jButton1.setText("Lecturers");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -48,7 +49,7 @@ public class select extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 153));
+        jButton2.setBackground(new java.awt.Color(29, 171, 184));
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jButton2.setText("Course");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -147,6 +148,7 @@ public class select extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new select().setVisible(true);
             }

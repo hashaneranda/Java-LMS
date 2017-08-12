@@ -5,9 +5,12 @@
  */
 package lecturers;
 
-import dbPart.DBConnection;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.util.Arrays;
+import javax.swing.JOptionPane;
+import lms.DBConnect;
 
 public class AddLecturers extends javax.swing.JInternalFrame {
 
@@ -19,7 +22,7 @@ public class AddLecturers extends javax.swing.JInternalFrame {
         initComponents();
         
         //connect DB
-        conn = DBConnection.ConnectDB();
+        conn = DBConnect.getConnection();
     }
 
     /**
@@ -36,22 +39,22 @@ public class AddLecturers extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        lecid = new javax.swing.JTextField();
-        lecname = new javax.swing.JTextField();
-        leccontact = new javax.swing.JTextField();
-        lecemail = new javax.swing.JTextField();
+        uname = new javax.swing.JTextField();
+        fname = new javax.swing.JTextField();
+        mail = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        lecaddress = new javax.swing.JTextField();
+        id = new javax.swing.JTextField();
         reset = new javax.swing.JButton();
+        pass = new javax.swing.JPasswordField();
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 255));
+        jPanel1.setBackground(new java.awt.Color(44, 201, 144));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setBackground(new java.awt.Color(102, 102, 255));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Lecturer ID");
+        jLabel1.setText("Username");
 
         jLabel2.setBackground(new java.awt.Color(102, 102, 255));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -61,24 +64,21 @@ public class AddLecturers extends javax.swing.JInternalFrame {
         jLabel3.setBackground(new java.awt.Color(102, 102, 255));
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Contact Number");
+        jLabel3.setText("Password");
 
         jLabel4.setBackground(new java.awt.Color(102, 102, 255));
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Email");
 
-        lecid.setBackground(new java.awt.Color(204, 204, 204));
-        lecid.setToolTipText("");
+        uname.setBackground(new java.awt.Color(204, 204, 204));
+        uname.setToolTipText("");
 
-        lecname.setBackground(new java.awt.Color(204, 204, 204));
-        lecname.setToolTipText("");
+        fname.setBackground(new java.awt.Color(204, 204, 204));
+        fname.setToolTipText("");
 
-        leccontact.setBackground(new java.awt.Color(204, 204, 204));
-        leccontact.setToolTipText("");
-
-        lecemail.setBackground(new java.awt.Color(204, 204, 204));
-        lecemail.setToolTipText("");
+        mail.setBackground(new java.awt.Color(204, 204, 204));
+        mail.setToolTipText("");
 
         jButton1.setBackground(new java.awt.Color(255, 204, 51));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
@@ -91,9 +91,9 @@ public class AddLecturers extends javax.swing.JInternalFrame {
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Address");
+        jLabel5.setText("Lecturer ID");
 
-        lecaddress.setBackground(new java.awt.Color(204, 204, 204));
+        id.setBackground(new java.awt.Color(204, 204, 204));
 
         reset.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         reset.setText("Reset");
@@ -117,9 +117,9 @@ public class AddLecturers extends javax.swing.JInternalFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lecname)
-                            .addComponent(leccontact)
-                            .addComponent(lecid)))
+                            .addComponent(fname)
+                            .addComponent(uname)
+                            .addComponent(pass)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 630, Short.MAX_VALUE)
                         .addComponent(reset)
@@ -131,8 +131,8 @@ public class AddLecturers extends javax.swing.JInternalFrame {
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lecemail)
-                            .addComponent(lecaddress))))
+                            .addComponent(mail)
+                            .addComponent(id))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -140,7 +140,7 @@ public class AddLecturers extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lecid, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(uname, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,19 +149,19 @@ public class AddLecturers extends javax.swing.JInternalFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(3, 3, 3)
-                        .addComponent(lecname)))
+                        .addComponent(fname)))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(leccontact, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pass, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+                .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lecemail, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+                    .addComponent(mail, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
                 .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lecaddress, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(2, 2, 2))
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -186,32 +186,46 @@ public class AddLecturers extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String id = lecid.getText();
-        String name = lecname.getText();
-        String contact = leccontact.getText();
-        String email = lecemail.getText();
-        String address = lecaddress.getText();
+        String lid = id.getText();
+        String fullname = fname.getText();
+        String password =new String(pass.getPassword());
+        String email = mail.getText();
+        String username = uname.getText();
         
+        if(!username.equals("") && !fullname.equals("") && !password.equals("")){
+
         try{
-            String q = "INSERT INTO lecturers (LecID,LecName,ContactNumber,Email,LecAddress) values ('"+ id +"','"+ name +"','"+ contact +"','"+ email +"','"+ address +"')";
+            String q = "INSERT INTO users(username,password,user_fullname,user_email,Index_no,role) values (?,?,?,?,?,'lecturer')";
             pst = conn.prepareStatement(q);
-            pst.execute();
+            pst.setString(1, username);
+            pst.setString(2,password);
+            pst.setString(3,fullname);
+            pst.setString(4,email);
+            pst.setString(5, lid);
+            
+            pst.executeUpdate();
         }
         catch(Exception e){
             System.out.println(e);
         } 
+        
+        }else{
+            JOptionPane.showMessageDialog(null, "Please Fill out username,fullname and password!", "Error", 0);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
-        lecid.setText(null);
-        lecname.setText(null);
-        leccontact.setText(null);
-        lecemail.setText(null);
-        lecaddress.setText(null);
+        uname.setText(null);
+        fname.setText(null);
+        pass.setText(null);
+        mail.setText(null);
+        id.setText(null);
     }//GEN-LAST:event_resetActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField fname;
+    private javax.swing.JTextField id;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -219,11 +233,9 @@ public class AddLecturers extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField lecaddress;
-    private javax.swing.JTextField leccontact;
-    private javax.swing.JTextField lecemail;
-    private javax.swing.JTextField lecid;
-    private javax.swing.JTextField lecname;
+    private javax.swing.JTextField mail;
+    private javax.swing.JPasswordField pass;
     private javax.swing.JButton reset;
+    private javax.swing.JTextField uname;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,9 +4,13 @@
  * and open the template in the editor.
  */
 package courses;
-import dbPart.DBConnection;
+import lms.DBConnect;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class AddCourses extends javax.swing.JInternalFrame {
 
@@ -18,7 +22,8 @@ public class AddCourses extends javax.swing.JInternalFrame {
         initComponents();
         
         //connect DB
-        conn = DBConnection.ConnectDB();
+        conn = DBConnect.getConnection();
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -41,7 +46,7 @@ public class AddCourses extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 255));
+        jPanel1.setBackground(new java.awt.Color(44, 201, 144));
         jPanel1.setToolTipText("");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -54,7 +59,7 @@ public class AddCourses extends javax.swing.JInternalFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Course Lecturer");
+        jLabel3.setText("Year");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -159,17 +164,34 @@ public class AddCourses extends javax.swing.JInternalFrame {
         String id = ModuleCode.getText();
         String cname = CourseName.getText();
         String name = CourseLecture.getText();
+        String dept = jComboBox1.getSelectedItem().toString();
+        System.out.println(dept);
         //put ComboBox Code here
         ////////////////String faculty = jComboBox1.getText();
-        
+        if(!id.equals("") && !cname.equals("") && !dept.equals("Select Faculty")){
         try{
-            String q = "INSERT INTO Courses (Module_Code,Course_Name,Course_Lecturer) values ('"+ id +"','"+ cname +"','"+ name +"')";
+            String q = "INSERT INTO courses (module_Code,module_Name,dept_ID,yr) values (?,?,?,?)";
             pst = conn.prepareStatement(q);
-            pst.execute();
+            pst.setString(1, id);
+            pst.setString(2, cname);
+            pst.setString(3,dept);
+            pst.setString(4,name);
+            pst.executeUpdate();
         }
         catch(Exception e){
             System.out.println(e);
+        }finally{
+            try {
+                if(pst!= null)pst.close();
+                if(conn!=null)conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(AddCourses.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
         } 
+        }else{
+            JOptionPane.showMessageDialog(null, "Please Fill out both Module code , Module Name and select faculty!", "Error", 0);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

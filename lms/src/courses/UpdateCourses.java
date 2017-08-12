@@ -5,6 +5,13 @@
  */
 package courses;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import lms.DBConnect;
+
 /**
  *
  * @author THISURA
@@ -16,6 +23,7 @@ public class UpdateCourses extends javax.swing.JInternalFrame {
      */
     public UpdateCourses() {
         initComponents();
+        
     }
 
     /**
@@ -39,7 +47,7 @@ public class UpdateCourses extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 255));
+        jPanel1.setBackground(new java.awt.Color(44, 201, 144));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -62,6 +70,11 @@ public class UpdateCourses extends javax.swing.JInternalFrame {
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton1.setText("UPDATE");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton2.setText("Reset");
@@ -144,6 +157,41 @@ public class UpdateCourses extends javax.swing.JInternalFrame {
         CourseName.setText(null);
         CourseLecture.setText(null);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String id = ModuleCode.getText();
+        String cname = CourseName.getText();
+        String name = CourseLecture.getText();
+        String dept = jComboBox1.getSelectedItem().toString();
+        //put ComboBox Code here
+        ////////////////String faculty = jComboBox1.getText();
+        Connection conn =DBConnect.getConnection();
+        PreparedStatement stmt = null;
+        
+        try{
+            String q = "update courses set module_Code=?,module_Name=?,dept_ID=?,yr=? where module_code=? and module_name=?";
+            stmt = conn.prepareStatement(q);
+            stmt.setString(1, id);
+            stmt.setString(2, cname);
+            stmt.setString(3,dept);
+            stmt.setString(4,name);
+            stmt.setString(5, id);
+            stmt.setString(6, cname);
+            stmt.executeUpdate();
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }finally{
+            try {
+                if(stmt!= null)stmt.close();
+                if(conn!=null)conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(AddCourses.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        } 
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

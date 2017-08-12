@@ -20,6 +20,7 @@ public class LectureView extends javax.swing.JFrame {
      */
     public LectureView() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -42,7 +43,7 @@ public class LectureView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 102, 0));
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 0));
+        jPanel1.setBackground(new java.awt.Color(29, 171, 184));
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -60,7 +61,7 @@ public class LectureView extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Lecturer Details");
 
-        add.setBackground(new java.awt.Color(255, 255, 153));
+        add.setBackground(new java.awt.Color(29, 171, 184));
         add.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         add.setText("Add Lecturers");
         add.addActionListener(new java.awt.event.ActionListener() {
@@ -69,7 +70,7 @@ public class LectureView extends javax.swing.JFrame {
             }
         });
 
-        update.setBackground(new java.awt.Color(255, 255, 153));
+        update.setBackground(new java.awt.Color(44, 201, 144));
         update.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         update.setText("Update Lecturers");
         update.addActionListener(new java.awt.event.ActionListener() {
@@ -78,7 +79,7 @@ public class LectureView extends javax.swing.JFrame {
             }
         });
 
-        delete.setBackground(new java.awt.Color(255, 255, 153));
+        delete.setBackground(new java.awt.Color(227, 0, 14));
         delete.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         delete.setText("Delete Lecturers");
         delete.addActionListener(new java.awt.event.ActionListener() {
@@ -87,6 +88,7 @@ public class LectureView extends javax.swing.JFrame {
             }
         });
 
+        back.setBackground(new java.awt.Color(29, 171, 184));
         back.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         back.setText("Back");
         back.addActionListener(new java.awt.event.ActionListener() {
