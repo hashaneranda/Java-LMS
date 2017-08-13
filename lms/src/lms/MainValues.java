@@ -17,28 +17,43 @@ import java.sql.SQLException;
  */
 public class MainValues {
 
+    /**
+     * @return the year
+     */
+    public String getYear() {
+        return year;
+    }
+
+    /**
+     * @param year the year to set
+     */
+    public void setYear(String year) {
+        this.year = year;
+    }
+
 
     private String department;
     private String course;
-    private String UserID;
+    private int UserID;
     private String UserRole;
     private String UserFullName;
     private String filePath;
+    private String year;
     
-    public void userInfo(String id) throws SQLException{
+    public void userInfo(int id) throws SQLException{
         PreparedStatement stmt = null;
         ResultSet rs = null;
         Connection conn = DBConnect.getConnection();
         try{
             stmt =conn.prepareStatement("select * from users where user_id = ?");
-            stmt.setString(1, id);
+            stmt.setInt(1, id);
             rs= stmt.executeQuery();
             rs.next();
             String name=rs.getString("user_fullname");
             String role=rs.getString("role");
             this.UserFullName= name;
             this.UserRole=role;
-            
+            System.out.println("***********mainvalue test**************/nuserID:"+id);
         }catch(SQLException e){
             System.err.println("error: "+e);
         } finally{
@@ -88,14 +103,14 @@ public class MainValues {
         /**
      * @return the UserID
      */
-    public String getUserID() {
+    public int getUserID() {
         return UserID;
     }
 
     /**
      * @param UserID the UserID to set
      */
-    public void setUserID(String UserID) {
+    public void setUserID(int UserID) {
         this.UserID = UserID;
     }
 
