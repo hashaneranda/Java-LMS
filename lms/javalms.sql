@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 12, 2017 at 07:47 PM
+-- Generation Time: Aug 13, 2017 at 06:31 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -94,73 +94,6 @@ INSERT INTO `events` (`events_id`, `event_name`, `event_image`, `event_content`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `eventuser`
---
-
-CREATE TABLE `eventuser` (
-  `user_id` int(5) NOT NULL,
-  `events_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `eventuser`
---
-
-INSERT INTO `eventuser` (`user_id`, `events_id`) VALUES
-(15, 2);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `inquiries`
---
-
-CREATE TABLE `inquiries` (
-  `inq_id` int(11) NOT NULL,
-  `inq_name` varchar(255) NOT NULL,
-  `inq_email` varchar(255) NOT NULL,
-  `inq_msg` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `inquiries`
---
-
-INSERT INTO `inquiries` (`inq_id`, `inq_name`, `inq_email`, `inq_msg`) VALUES
-(6, 'hello', 'hello@gmailcom', 'wfw');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `student-enrol`
---
-
-CREATE TABLE `student-enrol` (
-  `user_id` int(5) NOT NULL,
-  `module_code` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `subscribers`
---
-
-CREATE TABLE `subscribers` (
-  `sub_id` int(5) NOT NULL,
-  `sub_email` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `subscribers`
---
-
-INSERT INTO `subscribers` (`sub_id`, `sub_email`) VALUES
-(1, 'hello@gmail.com');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `users`
 --
 
@@ -182,11 +115,10 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `user_fullname`, `user_email`, `user_image`, `role`, `randSalt`, `Index_no`) VALUES
 (6, 'hello', '123', 'hello', 'hello@gmail.com', '', 'student', '', '1234'),
-(11, 'root', '$1$JL..e5/.$AXic3.8.7blksKRg9BqKm.', '', '', '', 'admin', '$2y$10$iusesomecrazystrings22', NULL),
-(12, 'lecturer4', '$1$Mf1.ls..$kPdYP0zUpEe.chfwWagc31', 'lecturer 4', 'lec4@gmail.com', '', 'lecturer', '$2y$10$iusesomecrazystrings22', NULL),
-(13, 'student5', '$1$HA/.EZ/.$B5Tnjzo/vExuLCmvt2BBF.', 'student5', 'student5@gmail.com', '', 'student', '$2y$10$iusesomecrazystrings22', '1234'),
-(14, 'lecturer1', '$1$gS..pl3.$AXc6i1kw95K0xzutFJm1z.', 'lecturer 1', 'lec1@gmail.com', '', 'lecturer', '$2y$10$iusesomecrazystrings22', NULL),
-(15, 'student1', '$1$hl3.W02.$C6fysWL5.PDaKDyM084jE0', 'student1', 'student1@gmail.com', '', 'student', '$2y$10$iusesomecrazystrings22', '1234');
+(15, 'student1', '$1$hl3.W02.$C6fysWL5.PDaKDyM084jE0', 'student1', 'student1@gmail.com', '', 'student', '$2y$10$iusesomecrazystrings22', '1234'),
+(16, 'admin', 'admin', '', '', NULL, 'admin', '$2y$10$iusesomecrazystrings22', NULL),
+(17, 'student2', '1234', 'student2', 'mail', NULL, 'student', '$2y$10$iusesomecrazystrings22', '1234'),
+(18, 'lec1', 'lec1', '', '', NULL, 'lecturer', '$2y$10$iusesomecrazystrings22', NULL);
 
 --
 -- Indexes for dumped tables
@@ -212,31 +144,6 @@ ALTER TABLE `events`
   ADD PRIMARY KEY (`events_id`);
 
 --
--- Indexes for table `eventuser`
---
-ALTER TABLE `eventuser`
-  ADD PRIMARY KEY (`user_id`,`events_id`),
-  ADD KEY `fkuserEventevent` (`events_id`);
-
---
--- Indexes for table `inquiries`
---
-ALTER TABLE `inquiries`
-  ADD PRIMARY KEY (`inq_id`);
-
---
--- Indexes for table `student-enrol`
---
-ALTER TABLE `student-enrol`
-  ADD PRIMARY KEY (`user_id`,`module_code`);
-
---
--- Indexes for table `subscribers`
---
-ALTER TABLE `subscribers`
-  ADD PRIMARY KEY (`sub_id`);
-
---
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -252,20 +159,10 @@ ALTER TABLE `users`
 ALTER TABLE `events`
   MODIFY `events_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT for table `inquiries`
---
-ALTER TABLE `inquiries`
-  MODIFY `inq_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `subscribers`
---
-ALTER TABLE `subscribers`
-  MODIFY `sub_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `user_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- Constraints for dumped tables
 --
@@ -275,19 +172,6 @@ ALTER TABLE `users`
 --
 ALTER TABLE `courses`
   ADD CONSTRAINT `fkcourseDept` FOREIGN KEY (`dept_ID`) REFERENCES `department` (`dept_ID`);
-
---
--- Constraints for table `eventuser`
---
-ALTER TABLE `eventuser`
-  ADD CONSTRAINT `fkuserEventevent` FOREIGN KEY (`events_id`) REFERENCES `events` (`events_id`),
-  ADD CONSTRAINT `fkuserEventuser` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
-
---
--- Constraints for table `student-enrol`
---
-ALTER TABLE `student-enrol`
-  ADD CONSTRAINT `fkUserEnroll` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
