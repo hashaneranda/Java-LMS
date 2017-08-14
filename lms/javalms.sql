@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 14, 2017 at 07:06 AM
+-- Generation Time: Aug 14, 2017 at 01:23 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -93,7 +93,9 @@ INSERT INTO `users` (`user_id`, `username`, `password`, `user_fullname`, `user_e
 (15, 'student1', '$1$hl3.W02.$C6fysWL5.PDaKDyM084jE0', 'student1', 'student1@gmail.com', '', 'student', '$2y$10$iusesomecrazystrings22', '1234'),
 (16, 'admin', 'admin', '', '', NULL, 'admin', '$2y$10$iusesomecrazystrings22', NULL),
 (17, 'student2', '1234', 'student2', 'mail', NULL, 'student', '$2y$10$iusesomecrazystrings22', '1234'),
-(18, 'lec1', 'lec1', '', '', NULL, 'lecturer', '$2y$10$iusesomecrazystrings22', NULL);
+(18, 'lec1', 'lec1', '', '', NULL, 'lecturer', '$2y$10$iusesomecrazystrings22', NULL),
+(19, 'lecturer', 'lecturer', 'lecturer', '', NULL, 'lecturer', '$2y$10$iusesomecrazystrings22', NULL),
+(20, 'student', 'student', 'student', '', NULL, 'student', '$2y$10$iusesomecrazystrings22', NULL);
 
 --
 -- Indexes for dumped tables
@@ -126,7 +128,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `user_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- Constraints for dumped tables
 --
