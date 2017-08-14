@@ -12,12 +12,20 @@ import java.util.Arrays;
 import javax.swing.JOptionPane;
 import lms.DBConnect;
 
+/**
+ *
+ * @author Hashan
+ */
 public class AddLecturers extends javax.swing.JInternalFrame {
 
     Connection conn = null;
     PreparedStatement pst = null;
     
     //Constructor
+
+    /**
+     *
+     */
     public AddLecturers() {
         initComponents();
         

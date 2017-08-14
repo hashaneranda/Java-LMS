@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 13, 2017 at 06:31 PM
+-- Generation Time: Aug 14, 2017 at 07:06 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -69,31 +69,6 @@ INSERT INTO `department` (`dept_ID`, `dept_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `events`
---
-
-CREATE TABLE `events` (
-  `events_id` int(11) NOT NULL,
-  `event_name` varchar(255) NOT NULL,
-  `event_image` text NOT NULL,
-  `event_content` text NOT NULL,
-  `venue` varchar(255) NOT NULL,
-  `date` date NOT NULL,
-  `time` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `events`
---
-
-INSERT INTO `events` (`events_id`, `event_name`, `event_image`, `event_content`, `venue`, `date`, `time`) VALUES
-(1, 'Google IO 2017', './uploads/events/Google IO 2017new_statesman_events.jpg', 'Vestibulum euismod est nec quam efficitur porttitor. Morbi at lectus eget turpis hendrerit bibendum. Integer eget nisi magna. Morbi tincidunt urna eu elit maximus egestas. Mauris eget purus velit. Duis lobortis, nulla non laoreet fringilla, massa orci lobortis neque, eu tristique nisl turpis sed lectus. Maecenas quis ante ac purus convallis pulvinar quis ut metus. Praesent condimentum finibus odio, quis eleifend mauris tincidunt quis. Vestibulum auctor arcu ac ullamcorper dictum. Donec maximus convallis tempus. ', 'galle', '2017-07-07', '12:00'),
-(2, 'Music Festival', './uploads/events/Music Festivalpexels-photo-196652.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in eros vel urna tristique iaculis eu a odio. Sed vel lorem placerat, vestibulum metus nec, facilisis metus. Phasellus ullamcorper, libero in fringilla venenatis, risus ex consequat justo, vel mattis velit turpis porta sapien. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed eu odio enim. Suspendisse eget sagittis nisl. Suspendisse ac quam a ante ultricies blandit. Duis euismod vel nibh at euismod. Sed sed varius enim, eget cursus ex. Nam congue id nibh id euismod. Nullam enim augue, aliquet quis ante at, cursus blandit ipsum.', 'NSBM auditorium', '2017-10-20', '10:00'),
-(3, 'Sports meet 2017', './uploads/events/Sports meet 2017pexels-photo78978.jpg', 'Duis id odio ante. Proin varius vestibulum sodales. Sed in lorem nec magna posuere aliquet. Proin sed risus cursus, maximus nibh eget, molestie sapien. Praesent vel magna id lectus ultrices gravida. Donec lorem ante, finibus ac mi at, cursus aliquet augue. Aenean facilisis sem in bibendum blandit. Phasellus eleifend sem dolor, at ultrices est pulvinar id. Sed viverra sollicitudin dolor, at tempus mauris interdum quis. Duis maximus at leo ac efficitur. Curabitur sed viverra tellus. Proin risus diam, elementum eu tristique a, consectetur ut nibh. ', 'NSBM ground', '2017-12-20', '08:00');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `users`
 --
 
@@ -138,12 +113,6 @@ ALTER TABLE `department`
   ADD PRIMARY KEY (`dept_ID`);
 
 --
--- Indexes for table `events`
---
-ALTER TABLE `events`
-  ADD PRIMARY KEY (`events_id`);
-
---
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -153,11 +122,6 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for dumped tables
 --
 
---
--- AUTO_INCREMENT for table `events`
---
-ALTER TABLE `events`
-  MODIFY `events_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `users`
 --

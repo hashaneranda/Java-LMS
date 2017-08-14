@@ -27,6 +27,7 @@ public class CourseList extends javax.swing.JFrame {
      * Creates new form CourseList
      * @param yr
      * @param dept
+     * @param userId
      * @throws java.sql.SQLException
      */
     public CourseList(String yr,String dept,int userId) throws SQLException {

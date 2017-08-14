@@ -40,6 +40,11 @@ public class MainValues {
     private String filePath;
     private String year;
     
+    /**
+     *
+     * @param id
+     * @throws SQLException
+     */
     public void userInfo(int id) throws SQLException{
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -142,9 +147,19 @@ public class MainValues {
     public void setCourse(String course) {
         this.course = course;
     }
+
+    /**
+     *
+     * @param dept
+     */
     public void setDepartment(String dept){
         this.department=dept;
     }
+
+    /**
+     *
+     * @return
+     */
     public String getDepartment(){
         return department;
     }

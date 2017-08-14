@@ -29,7 +29,9 @@ public class CourseContentLecturer extends javax.swing.JFrame {
      * @param Course
      * @param dept
      * @param userId
+     * @param yr
      * @throws java.sql.SQLException
+     * @throws java.io.IOException
      */
     public CourseContentLecturer(String Course,String dept,int userId,String yr) throws SQLException, IOException {
         super(Course);

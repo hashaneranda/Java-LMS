@@ -221,10 +221,12 @@ this.dispose();
          
             
             rs = stmt.executeQuery();
-            rs.next();
+            if(rs.next()){
+            //rs.next();
             String dbusername = rs.getString("username");
             String dbpassword = rs.getString("password");
             System.out.println("test1");
+            
             if(username.equals(dbusername) && password.equals(dbpassword)){
                 //after login java.awt.EventQueue.invokeLater(new Runnable() {
                 System.out.println("login sucessfull");
@@ -243,7 +245,9 @@ this.dispose();
             }else{
                 JOptionPane.showMessageDialog(null, "username or password invalid", "Error", 0);
             }
-            
+            }else{
+                JOptionPane.showMessageDialog(null, "username or password invalid", "Error", 0);
+            }
             
             
         } catch (SQLException ex) {

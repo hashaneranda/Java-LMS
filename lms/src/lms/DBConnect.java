@@ -20,7 +20,10 @@ public class DBConnect {
     private static final String USERNAME = "root";
     private static final String PASSWORD = "";
     
-    
+    /**
+     *
+     * @return
+     */
     public static Connection getConnection(){
         Connection conn = null;
         

@@ -24,6 +24,7 @@ public class courses_std extends javax.swing.JFrame {
     /**
      * Creates new form courses_std
      * @param dept
+     * @param userId
      * @throws java.sql.SQLException
      */
     public courses_std(String dept,int userId) throws SQLException {

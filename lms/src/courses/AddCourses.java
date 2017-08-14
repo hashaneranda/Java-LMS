@@ -12,12 +12,20 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
+/**
+ *
+ * @author Thisura
+ */
 public class AddCourses extends javax.swing.JInternalFrame {
 
     Connection conn = null;
     PreparedStatement pst = null;
     
     //Constructor
+
+    /**
+     *
+     */
     public AddCourses() {
         initComponents();
         

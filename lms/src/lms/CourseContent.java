@@ -26,6 +26,8 @@ public class CourseContent extends javax.swing.JFrame {
      * @param Course
      * @param dept
      * @param userId
+     * @param yr
+     * @throws java.io.IOException
      */
 
     

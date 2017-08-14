@@ -21,6 +21,10 @@ public class UpdateLecturers extends javax.swing.JInternalFrame {
     PreparedStatement pst = null;
     
     //Constructor
+
+    /**
+     *
+     */
     public UpdateLecturers() {
         initComponents();
         
